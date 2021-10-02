@@ -7,6 +7,7 @@ on:
       - '.cirrus.yml'
     branches:
       - master
+      - tests-coverage
       - develop
   pull_request:
     paths-ignore:
@@ -83,4 +84,4 @@ jobs:
 
       - name: Run pytest
         shell: bash
-        run: poetry run python -m pytest -p no:sugar -q tests/
+        run: poetry run pytest --cov=poetry tests/ --cov-report term-missing
